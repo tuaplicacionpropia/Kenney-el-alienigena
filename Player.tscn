@@ -1,0 +1,132 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Player.gd" type="Script" id=1]
+[ext_resource path="res://assets/player/alienBlue_stand.png" type="Texture" id=2]
+[ext_resource path="res://assets/player/alienBlue_walk1.png" type="Texture" id=3]
+[ext_resource path="res://assets/player/alienBlue_walk2.png" type="Texture" id=4]
+[ext_resource path="res://assets/player/alienBlue_hit.png" type="Texture" id=5]
+[ext_resource path="res://assets/player/alienBlue_jump.png" type="Texture" id=6]
+[ext_resource path="res://assets/sounds/collect.ogg" type="AudioStream" id=7]
+[ext_resource path="res://dead.tres" type="Animation" id=8]
+[ext_resource path="res://hit.tres" type="Animation" id=9]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "Walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "Fall",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "Jump",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 24, 3 )
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 44, 73 )
+
+[node name="Player" type="KinematicBody2D"]
+
+position = Vector2( 384, 32 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.01
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision", "Material", "Pickable", "Transform", "Visibility", "Z Index", "collision" ]
+lifes = 3
+
+[node name="Sprite" type="AnimatedSprite" parent="." index="0"]
+
+frames = SubResource( 1 )
+animation = "Fall"
+playing = true
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="1"]
+
+position = Vector2( 1, 0 )
+build_mode = 0
+polygon = PoolVector2Array( -32, 0, -3, -17, 43, 0, 54, 30, 32, 94, 24, 117, 9, 128, -11, 128, -27, 117, -32, 89, -51, 29 )
+
+[node name="audio" type="AudioStreamPlayer" parent="." index="2"]
+
+stream = ExtResource( 7 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="feet" type="Area2D" parent="." index="3"]
+
+editor/display_folded = true
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 4
+collision_mask = 4
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Audio Bus", "Collision" ]
+
+[node name="shape_feet" type="CollisionShape2D" parent="feet" index="0"]
+
+position = Vector2( 18, 128 )
+shape = SubResource( 2 )
+
+[node name="damage" type="Area2D" parent="." index="4"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 4
+collision_mask = 4
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
+
+[node name="shape" type="CollisionShape2D" parent="damage" index="0"]
+
+position = Vector2( 1, 51 )
+shape = SubResource( 3 )
+
+[node name="anim" type="AnimationPlayer" parent="." index="5"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/dead = ExtResource( 8 )
+anims/hit = ExtResource( 9 )
+blend_times = [  ]
+
+[connection signal="body_entered" from="feet" to="." method="_on_feet_body_entered"]
+
+[connection signal="body_entered" from="damage" to="." method="_on_damage_body_entered"]
+
+

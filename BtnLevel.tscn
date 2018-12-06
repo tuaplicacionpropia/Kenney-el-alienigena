@@ -1,0 +1,88 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://BtnLevel.gd" type="Script" id=1]
+[ext_resource path="res://assets/ui/cell_level.png" type="Texture" id=2]
+[ext_resource path="res://assets/fonts/RaggMoppNF.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/ui/stars_three.png" type="Texture" id=4]
+[ext_resource path="res://assets/ui/icon_lock.png" type="Texture" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+
+size = 172
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 3 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 112, 96 )
+
+[node name="BtnLevel" type="Area2D" index="0"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 1 )
+lock = false
+labelName = "49"
+numStars = 3
+option = {
+
+}
+
+[node name="bg" type="Sprite" parent="." index="0"]
+
+position = Vector2( 112, 112 )
+texture = ExtResource( 2 )
+
+[node name="num" type="Label" parent="bg" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -112.0
+margin_top = -96.0
+margin_right = -112.0
+margin_bottom = -81.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "49"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
+
+[node name="stars" type="Sprite" parent="bg" index="1"]
+
+position = Vector2( 0, 80 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="lock" type="Sprite" parent="bg" index="2"]
+
+visible = false
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+
+position = Vector2( 112, 96 )
+shape = SubResource( 2 )
+
+[connection signal="input_event" from="." to="." method="_on_BtnLevel_input_event"]
+
+

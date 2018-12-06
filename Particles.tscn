@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+
+[node name="Node" type="Node" index="0"]
+
+[node name="Particles2D" type="Particles2D" parent="." index="0"]
+
+position = Vector2( 288, 96 )
+emitting = false
+amount = 8476
+lifetime = 81.36
+one_shot = true
+preprocess = 71.19
+speed_scale = 16.28
+explosiveness = 0.0
+randomness = 0.1
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = true
+draw_order = 0
+process_material = null
+texture = ExtResource( 1 )
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time" ]
+
+

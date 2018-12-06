@@ -1,0 +1,67 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Level.tscn" type="PackedScene" id=1]
+[ext_resource path="res://DirtTileset.tres" type="TileSet" id=2]
+[ext_resource path="res://Elevator.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Enemy.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Finish.tscn" type="PackedScene" id=5]
+
+[node name="World" instance=ExtResource( 1 )]
+
+background = "res://assets/backgrounds/colored_shroom.png"
+
+[node name="TileMap" type="TileMap" parent="Walls" index="0"]
+
+mode = 0
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 64, 64 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( 720900, 22, 0, 720902, 22, 0, 786440, 22, 0, 786442, 22, 0, 786444, 22, 0, 786446, 22, 0, 786448, 22, 0, 786450, 22, 0, 786452, 22, 0, 786454, 29, 0, 786460, 30, 0, 786462, 30, 0, 786469, 30, 0, 786474, 30, 0, 786476, 30, 0, 786480, 30, 0, 851972, 16, 0, 851974, 17, 0, 917512, 16, 0, 917514, 16, 0, 917516, 16, 0, 917518, 16, 0, 917520, 16, 0, 917522, 16, 0, 917524, 16, 0, 917526, 16, 0, 917528, 6, 0, 917532, 9, 0, 917534, 9, 0, 917539, 9, 0, 917541, 9, 0, 917546, 9, 0, 917548, 9, 0, 917552, 5, 0, 1245219, 30, 0, 1376288, 30, 0, 1376289, 30, 0, 1376290, 30, 0, 1376291, 27, 0, 1376292, 30, 0, 1376293, 30, 0, 1376294, 30, 0, 1376295, 30, 0, 1376296, 30, 0, 1376297, 30, 0, 1376298, 30, 0, 1376299, 30, 0, 1376300, 30, 0, 1376301, 30, 0, 1376302, 30, 0, 1376303, 30, 0, 1376304, 30, 0, 1507360, 5, 0, 1507362, 15, 0, 1507364, 15, 0, 1507366, 15, 0, 1507368, 15, 0, 1507370, 15, 0, 1507372, 15, 0, 1507374, 15, 0, 1507376, 15, 0 )
+
+[node name="Elevator" parent="Walls/TileMap" index="0" instance=ExtResource( 3 )]
+
+position = Vector2( 3392, 1216 )
+
+[node name="Enemy" parent="Walls" index="1" instance=ExtResource( 4 )]
+
+position = Vector2( 1184, 832 )
+type = 5
+
+[node name="Finish" parent="Walls" index="2" instance=ExtResource( 5 )]
+
+position = Vector2( 2080, 1408 )
+
+[node name="Enemy2" parent="Walls" index="3" instance=ExtResource( 4 )]
+
+position = Vector2( 2784, 1376 )
+_sections_unfolded = [ "Collision", "Transform" ]
+type = 5
+
+[node name="Enemy3" parent="Walls" index="4" instance=ExtResource( 4 )]
+
+position = Vector2( 3104, 1376 )
+_sections_unfolded = [ "Collision", "Transform" ]
+type = 5
+
+[node name="Player" parent="." index="2"]
+
+position = Vector2( 384, 672 )
+_sections_unfolded = [ "Collision", "Material", "Pickable", "Transform", "Visibility", "Z Index", "collision" ]
+
+[node name="Precipicio" parent="." index="4"]
+
+scale = Vector2( 11.4219, 1 )
+
+

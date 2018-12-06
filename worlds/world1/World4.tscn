@@ -1,0 +1,113 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Level.tscn" type="PackedScene" id=1]
+[ext_resource path="res://GrassTileset.tres" type="TileSet" id=2]
+[ext_resource path="res://Coin.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Finish.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Enemy.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Star.tscn" type="PackedScene" id=6]
+
+[node name="World" instance=ExtResource( 1 )]
+
+background = "res://assets/backgrounds/blue_land2.png"
+
+[node name="TileMap" type="TileMap" parent="Walls" index="0"]
+
+mode = 0
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 64, 64 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( 655425, 10, 0, 655427, 11, 0, 655429, 12, 0, 852027, 3, 0, 852029, 16, 0, 852031, 16, 0, 852033, 16, 0, 852035, 16, 0, 852037, 16, 0, 852039, 16, 0, 852041, 16, 0, 852043, 4, 0, 1048622, 3, 0, 1048624, 16, 0, 1048626, 16, 0, 1048628, 16, 0, 1048630, 4, 0, 1114204, 22, 0, 1245225, 22, 0, 1245274, 22, 0, 1245276, 22, 0, 1245278, 22, 0, 1376258, 32, 0, 1376288, 23, 0, 1376289, 23, 0, 1376295, 22, 0, 1376297, 22, 0, 1376299, 22, 0, 1376344, 22, 0, 1376346, 22, 0, 1376348, 22, 0, 1376350, 22, 0, 1376352, 22, 0, 1376368, 30, 0, 1507328, 15, 0, 1507330, 16, 0, 1507332, 16, 0, 1507334, 16, 0, 1507336, 16, 0, 1507338, 16, 0, 1507340, 16, 0, 1507342, 16, 0, 1507344, 16, 0, 1507346, 16, 0, 1507348, 16, 0, 1507350, 16, 0, 1507352, 16, 0, 1507354, 16, 0, 1507356, 16, 0, 1507358, 16, 0, 1507360, 16, 0, 1507362, 16, 0, 1507364, 16, 0, 1507366, 16, 0, 1507368, 16, 0, 1507370, 16, 0, 1507372, 16, 0, 1507374, 16, 0, 1507376, 16, 0, 1507378, 16, 0, 1507380, 16, 0, 1507382, 16, 0, 1507384, 16, 0, 1507386, 16, 0, 1507388, 16, 0, 1507390, 16, 0, 1507392, 16, 0, 1507394, 16, 0, 1507396, 16, 0, 1507398, 16, 0, 1507400, 16, 0, 1507402, 16, 0, 1507404, 16, 0, 1507406, 16, 0, 1507408, 16, 0, 1507410, 16, 0, 1507412, 16, 0, 1507414, 16, 0, 1507416, 16, 0, 1507418, 16, 0, 1507420, 16, 0, 1507422, 16, 0, 1507424, 16, 0, 1507426, 16, 0, 1507428, 16, 0, 1507430, 16, 0, 1507432, 16, 0, 1507434, 16, 0, 1507436, 16, 0, 1507438, 16, 0, 1507440, 16, 0, 1507442, 16, 0, 1507444, 16, 0, 1507446, 16, 0, 1507448, 16, 0, 1507450, 16, 0, 1507452, 16, 0, 1507454, 16, 0, 1507456, 16, 0, 1507458, 16, 0, 1638400, 1, 0, 1638402, 1, 0, 1638404, 1, 0, 1638406, 1, 0, 1638408, 1, 0, 1638410, 1, 0, 1638412, 1, 0, 1638414, 1, 0, 1638416, 1, 0, 1638418, 1, 0, 1638420, 1, 0, 1638422, 1, 0, 1638424, 1, 0, 1638426, 1, 0, 1638428, 1, 0, 1638430, 1, 0, 1638432, 1, 0, 1638434, 1, 0, 1638436, 1, 0, 1638438, 1, 0, 1638440, 1, 0, 1638442, 1, 0, 1638444, 1, 0, 1638446, 1, 0, 1638448, 1, 0, 1638450, 1, 0, 1638452, 1, 0, 1638454, 1, 0, 1638456, 1, 0, 1638458, 1, 0, 1638460, 1, 0, 1638462, 1, 0, 1638464, 1, 0, 1638466, 1, 0, 1638468, 1, 0, 1638470, 1, 0, 1638472, 1, 0, 1638474, 1, 0, 1638476, 1, 0, 1638478, 1, 0, 1638480, 1, 0, 1638482, 1, 0, 1638484, 1, 0, 1638486, 1, 0, 1638488, 1, 0, 1638490, 1, 0, 1638492, 1, 0, 1638494, 1, 0, 1638496, 1, 0, 1638498, 1, 0, 1638500, 1, 0, 1638502, 1, 0, 1638504, 1, 0, 1638506, 1, 0, 1638508, 1, 0, 1638510, 1, 0, 1638512, 1, 0, 1638514, 1, 0, 1638516, 1, 0, 1638518, 1, 0, 1638520, 1, 0, 1638522, 1, 0, 1638524, 1, 0, 1638526, 1, 0, 1638528, 1, 0, 1638530, 1, 0 )
+_sections_unfolded = [ "Cell", "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Coin" parent="Walls" index="1" instance=ExtResource( 3 )]
+
+position = Vector2( 1584, 1136 )
+
+[node name="Coin2" parent="Walls" index="2" instance=ExtResource( 3 )]
+
+position = Vector2( 1456, 1136 )
+
+[node name="Coin3" parent="Walls" index="3" instance=ExtResource( 3 )]
+
+position = Vector2( 1712, 1136 )
+
+[node name="Coin4" parent="Walls" index="4" instance=ExtResource( 3 )]
+
+position = Vector2( 3456, 1344 )
+
+[node name="Coin5" parent="Walls" index="5" instance=ExtResource( 3 )]
+
+position = Vector2( 4736, 1344 )
+
+[node name="Coin6" parent="Walls" index="6" instance=ExtResource( 3 )]
+
+position = Vector2( 4896, 1344 )
+
+[node name="Coin7" parent="Walls" index="7" instance=ExtResource( 3 )]
+
+position = Vector2( 6816, 1344 )
+
+[node name="Finish" parent="Walls" index="8" instance=ExtResource( 4 )]
+
+position = Vector2( 7584, 1408 )
+
+[node name="Enemy" parent="Walls" index="9" instance=ExtResource( 5 )]
+
+position = Vector2( 3280, 960 )
+scale = Vector2( 1.25, 1 )
+_sections_unfolded = [ "Collision", "Transform" ]
+vertical = false
+speed = 0.75
+amplitude = 100
+
+[node name="Enemy2" parent="Walls" index="10" instance=ExtResource( 5 )]
+
+position = Vector2( 4288, 1408 )
+_sections_unfolded = [ "Collision", "Transform" ]
+vertical = false
+amplitude = 1100
+
+[node name="Enemy3" parent="Walls" index="11" instance=ExtResource( 5 )]
+
+position = Vector2( 4672, 768 )
+_sections_unfolded = [ "Collision", "Transform" ]
+vertical = false
+amplitude = 200
+
+[node name="Player" parent="." index="2"]
+
+position = Vector2( 384, 672 )
+
+[node name="Precipicio" parent="." index="4"]
+
+scale = Vector2( 11.4219, 1 )
+
+[node name="Star" parent="." index="6" instance=ExtResource( 6 )]
+
+position = Vector2( 6400, 928 )
+
+[node name="Star2" parent="." index="7" instance=ExtResource( 6 )]
+
+position = Vector2( 4352, 416 )
+
+[node name="Star3" parent="." index="8" instance=ExtResource( 6 )]
+
+position = Vector2( 3296, 688 )
+
+

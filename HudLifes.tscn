@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://HudLifes.gd" type="Script" id=1]
+[ext_resource path="res://assets/hud/hudHeart_full.png" type="Texture" id=2]
+
+[node name="HudLifes" type="Node2D"]
+
+script = ExtResource( 1 )
+amount = 3
+
+[node name="sprite1" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 2 )
+
+[node name="sprite2" type="Sprite" parent="." index="1"]
+
+position = Vector2( 128, 0 )
+texture = ExtResource( 2 )
+
+[node name="sprite3" type="Sprite" parent="." index="2"]
+
+position = Vector2( 256, 0 )
+texture = ExtResource( 2 )
+
+

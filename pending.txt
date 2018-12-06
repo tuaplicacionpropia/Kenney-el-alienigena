@@ -1,0 +1,43 @@
+OK 1. Fases más largas
+OK 2. Banderas rojas (checkpoint)
+OK 3. Dos mundos más
+4. Armas (mini gun - pistola)
+
+
+
+Items:
+  OK Bloque indestructible
+  Bloque con sorpresa
+  Seta/Vida
+  Corazones HUD para vidas
+  Bloque destructible
+  Estrellas escondidas en bloques o visible en escenario zonas difíciles
+  Puertas a zonas especiales del nivel
+  Tuberías a zonas especiales del nivel
+  Escaleras a zonas especiales del nivel
+  Arboles decorativos
+  Arbustos decorativos
+  Montañas decorativas
+  Vallas decorativas
+  Zonas de pinchos (en lugar de precipio)
+  Zonas de lava (en lugar de precipio)
+  Zonas de agua (en lugar de precipio)
+  Muelle trampolín
+
+Habilidades del personaje:
+  Doble salto
+  Descender de plataforma
+  Subir y bajar escaleras
+  Descender suavemente una pared de bloques
+  Escalar saltando de lado a lado
+  Nadar
+
+Consejos para niveles:
+  Suelo predominante. Escasas zonas de precipicio
+  Algunos escenarios pueden ser cuevas (bloques por arriba y por debajo).
+  Escasas plataformas móviles
+  Algunos escenarios de zonas bajas y elevadas (múltiples caminos) con precipicios a los lados.
+  Escenarios acuáticos
+
+
+

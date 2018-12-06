@@ -1,0 +1,66 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Elevator.gd" type="Script" id=1]
+[ext_resource path="res://assets/tiles/grass.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 64, 64 )
+
+[node name="Elevator" type="Node2D"]
+
+script = ExtResource( 1 )
+vertical = true
+speed = 0.5
+amplitude = 300
+
+[node name="block" type="StaticBody2D" parent="." index="0" groups=[
+"plataforma",
+]]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Pickable" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="block" index="0"]
+
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="block" index="1"]
+
+shape = SubResource( 1 )
+
+[node name="block2" type="StaticBody2D" parent="." index="1" groups=[
+"plataforma",
+]]
+
+position = Vector2( 128, 0 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="block2" index="0"]
+
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="block2" index="1"]
+
+shape = SubResource( 1 )
+
+

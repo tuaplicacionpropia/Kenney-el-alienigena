@@ -1,0 +1,152 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://WndWorlds.gd" type="Script" id=1]
+[ext_resource path="res://assets/ui/wnd_main_background2.png" type="Texture" id=2]
+[ext_resource path="res://assets/ui/wnd_worlds.png" type="Texture" id=3]
+[ext_resource path="res://assets/ui/radio_selected.png" type="Texture" id=4]
+[ext_resource path="res://assets/ui/radio_unselected.png" type="Texture" id=5]
+[ext_resource path="res://assets/ui/btn_previous.png" type="Texture" id=6]
+[ext_resource path="res://assets/ui/btn_next.png" type="Texture" id=7]
+[ext_resource path="res://worlds/world1/logo.png" type="Texture" id=8]
+[ext_resource path="res://assets/ui/icon_lock.png" type="Texture" id=9]
+[ext_resource path="res://assets/ui/stars_zero.png" type="Texture" id=10]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 391.111, 391.111 )
+
+[node name="WndWorlds" type="Control"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1232.0
+margin_bottom = 1536.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+script = ExtResource( 1 )
+_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Mouse", "Pause", "Rect", "Size Flags", "Visibility" ]
+options = [  ]
+pageIdx = 0
+
+[node name="background" type="Sprite" parent="." index="0"]
+
+modulate = Color( 0.352941, 0.352941, 0.352941, 1 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="wnd" type="Sprite" parent="." index="1"]
+
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Animation", "Offset", "Region", "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="page1" type="Sprite" parent="wnd" index="0"]
+
+position = Vector2( -111.111, 622.222 )
+texture = ExtResource( 4 )
+
+[node name="page2" type="Sprite" parent="wnd" index="1"]
+
+position = Vector2( 0, 622.222 )
+texture = ExtResource( 5 )
+
+[node name="page3" type="Sprite" parent="wnd" index="2"]
+
+position = Vector2( 106.667, 622.222 )
+texture = ExtResource( 5 )
+
+[node name="btnPrevious" type="TextureButton" parent="wnd" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -444.0
+margin_top = 533.0
+margin_right = -273.0
+margin_bottom = 705.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 6 )
+_sections_unfolded = [ "Textures" ]
+
+[node name="btnNext" type="TextureButton" parent="wnd" index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 249.0
+margin_top = 533.0
+margin_right = 420.0
+margin_bottom = 705.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 7 )
+_sections_unfolded = [ "Textures" ]
+
+[node name="SelectWorld" type="Area2D" parent="wnd" index="5"]
+
+editor/display_folded = true
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="logo" type="Sprite" parent="wnd/SelectWorld" index="0"]
+
+position = Vector2( -17.7778, -53.3333 )
+texture = ExtResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wnd/SelectWorld" index="1"]
+
+position = Vector2( -17.7778, -53.3333 )
+shape = SubResource( 1 )
+disabled = true
+
+[node name="btn" type="Sprite" parent="wnd/SelectWorld" index="2"]
+
+modulate = Color( 1, 1, 1, 0.313726 )
+position = Vector2( -17.7778, -35.5555 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 9 )
+_sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
+
+[node name="stars" type="Sprite" parent="wnd" index="6"]
+
+position = Vector2( -17.7778, 337.778 )
+texture = ExtResource( 10 )
+
+[connection signal="input_event" from="wnd/SelectWorld" to="." method="_on_SelectWorld_input_event"]
+
+

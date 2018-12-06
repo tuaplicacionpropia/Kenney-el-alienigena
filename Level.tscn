@@ -1,0 +1,316 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Level.gd" type="Script" id=1]
+[ext_resource path="res://assets/backgrounds/blue_land2.png" type="Texture" id=2]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/sounds/theme1.ogg" type="AudioStream" id=4]
+[ext_resource path="res://Precipicio.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/controls/shadedDark14.png" type="Texture" id=6]
+[ext_resource path="res://assets/fonts/RaggMoppNF.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://HudLifes.tscn" type="PackedScene" id=8]
+[ext_resource path="res://HudStars.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/controls/shadedDark25.png" type="Texture" id=10]
+[ext_resource path="res://assets/controls/shadedDark45.png" type="Texture" id=11]
+[ext_resource path="res://assets/controls/shadedDark24.png" type="Texture" id=12]
+
+[sub_resource type="DynamicFont" id=1]
+
+size = 64
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 7 )
+_sections_unfolded = [ "Extra Spacing", "Font", "Font/fallback", "Settings" ]
+
+[sub_resource type="DynamicFont" id=2]
+
+size = 64
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 7 )
+_sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
+
+[node name="World" type="Control"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+script = ExtResource( 1 )
+_sections_unfolded = [ "Focus" ]
+score = 0
+stars = 0
+lifes = 3
+background = "res://assets/backgrounds/colored_desert.png"
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." index="0"]
+
+layer = -1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+scroll_offset = Vector2( 0, 0 )
+scroll_base_offset = Vector2( 0, 0 )
+scroll_base_scale = Vector2( 1, 1 )
+scroll_limit_begin = Vector2( 0, 0 )
+scroll_limit_end = Vector2( 0, 0 )
+scroll_ignore_camera_zoom = true
+_sections_unfolded = [ "Scroll" ]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" index="0"]
+
+motion_scale = Vector2( 1, 1 )
+motion_offset = Vector2( 0, 0 )
+motion_mirroring = Vector2( 2339, 0 )
+_sections_unfolded = [ "Motion", "Transform", "Visibility", "Z Index" ]
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="0"]
+
+texture = ExtResource( 2 )
+centered = false
+_sections_unfolded = [ "Animation", "Offset", "Transform" ]
+
+[node name="Walls" type="Node" parent="." index="1"]
+
+[node name="Player" parent="." index="2" instance=ExtResource( 3 )]
+
+editor/display_folded = true
+position = Vector2( 387, 763 )
+z_index = 1
+
+[node name="Camera2D" type="Camera2D" parent="Player" index="6"]
+
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 1, 1 )
+limit_left = -10000000
+limit_top = 0
+limit_right = 10000000
+limit_bottom = 1024
+limit_smoothed = false
+drag_margin_h_enabled = false
+drag_margin_v_enabled = false
+smoothing_enabled = false
+smoothing_speed = 10.0
+offset_v = 0.0
+offset_h = 0.0
+drag_margin_left = 0.2
+drag_margin_top = 0.2
+drag_margin_right = 0.2
+drag_margin_bottom = 0.2
+editor_draw_screen = true
+editor_draw_limits = true
+editor_draw_drag_margin = true
+_sections_unfolded = [ "Drag Margin", "Editor", "Limit", "Offset", "Smoothing" ]
+
+[node name="theme" type="AudioStreamPlayer" parent="." index="3"]
+
+stream = ExtResource( 4 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = true
+mix_target = 0
+bus = "Master"
+
+[node name="Precipicio" parent="." index="4" instance=ExtResource( 5 )]
+
+position = Vector2( -2064, 2104 )
+scale = Vector2( 66.5, 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="5"]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="gui_pause" type="Node2D" parent="CanvasLayer" index="0"]
+
+editor/display_folded = true
+
+[node name="touchPause" type="TouchScreenButton" parent="CanvasLayer/gui_pause" index="0"]
+
+position = Vector2( 2144, 32 )
+scale = Vector2( 3, 3 )
+normal = ExtResource( 6 )
+pressed = null
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = ""
+visibility_mode = 0
+_sections_unfolded = [ "Transform" ]
+
+[node name="btnPause" type="TextureButton" parent="CanvasLayer/gui_pause" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2144.0
+margin_top = 32.0
+margin_right = 2192.0
+margin_bottom = 80.0
+rect_scale = Vector2( 3, 3 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 6 )
+_sections_unfolded = [ "Rect", "Textures" ]
+
+[node name="labelScore" type="Label" parent="CanvasLayer" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 32.0
+margin_top = 32.0
+margin_right = 215.0
+margin_bottom = 106.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
+text = "Score:"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="score" type="Label" parent="CanvasLayer" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 256.0
+margin_top = 32.0
+margin_right = 296.0
+margin_bottom = 46.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "0"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Theme", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
+
+[node name="hudLifes" parent="CanvasLayer" index="3" instance=ExtResource( 8 )]
+
+position = Vector2( 736, 64 )
+
+[node name="hudStars" parent="CanvasLayer" index="4" instance=ExtResource( 9 )]
+
+position = Vector2( 1436, 64 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="touchRight" type="TouchScreenButton" parent="CanvasLayer" index="5"]
+
+position = Vector2( 320, 1344 )
+scale = Vector2( 3, 3 )
+normal = ExtResource( 10 )
+pressed = null
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = ""
+visibility_mode = 0
+_sections_unfolded = [ "Transform" ]
+
+[node name="touchJump" type="TouchScreenButton" parent="CanvasLayer" index="6"]
+
+position = Vector2( 2048, 1312 )
+scale = Vector2( 3, 3 )
+normal = ExtResource( 11 )
+pressed = null
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = ""
+visibility_mode = 0
+_sections_unfolded = [ "Transform" ]
+
+[node name="touchLeft" type="TouchScreenButton" parent="CanvasLayer" index="7"]
+
+position = Vector2( 64, 1152 )
+scale = Vector2( 3, 3 )
+normal = ExtResource( 12 )
+pressed = null
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = ""
+visibility_mode = 0
+_sections_unfolded = [ "Transform" ]
+
+[node name="center" type="CenterContainer" parent="CanvasLayer" index="8"]
+
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+use_top_left = false
+
+[connection signal="pressed" from="CanvasLayer/gui_pause/touchPause" to="." method="_on_touchPause_pressed"]
+
+[connection signal="pressed" from="CanvasLayer/gui_pause/btnPause" to="." method="_on_btnPause_pressed"]
+
+[connection signal="pressed" from="CanvasLayer/touchRight" to="." method="_on_touchRight_pressed"]
+
+[connection signal="released" from="CanvasLayer/touchRight" to="." method="_on_touchRight_released"]
+
+[connection signal="pressed" from="CanvasLayer/touchJump" to="." method="_on_touchJump_pressed"]
+
+[connection signal="released" from="CanvasLayer/touchJump" to="." method="_on_touchJump_released"]
+
+[connection signal="pressed" from="CanvasLayer/touchLeft" to="." method="_on_touchLeft_pressed"]
+
+[connection signal="released" from="CanvasLayer/touchLeft" to="." method="_on_touchLeft_released"]
+
+

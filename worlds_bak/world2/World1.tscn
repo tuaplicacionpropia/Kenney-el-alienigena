@@ -1,0 +1,74 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Level.tscn" type="PackedScene" id=1]
+[ext_resource path="res://SandTileset.tres" type="TileSet" id=2]
+[ext_resource path="res://Wall.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Finish.tscn" type="PackedScene" id=4]
+
+[node name="World" instance=ExtResource( 1 )]
+
+background = "res://assets/backgrounds/blue_land.png"
+
+[node name="TileMap" type="TileMap" parent="Walls" index="0"]
+
+mode = 0
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 64, 64 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( 851979, 0, 0, 983051, 0, 0, 1048594, 14, 0, 1114114, 13, 0, 1114123, 0, 0, 1114131, 3, 0, 1114134, 4, 0, 1179664, 14, 0, 1179666, 8, 0, 1245188, 13, 0, 1245190, 14, 0, 1245192, 16, 0, 1245194, 13, 0, 1245195, 0, 0, 1310736, 10, 0, 1310738, 11, 0, 1310740, 11, 0, 1310742, 13, 0, 1310746, 6, 0, 1376262, 8, 0, 1376264, 1, 0, 1376266, 7, 0, 1376267, 0, 0, 1376276, 1, 0, 1441814, 7, 0, 1441816, 9, 0, 1507329, 0, 0, 1507331, 0, 0, 1507333, 0, 0, 1507335, 0, 0, 1507337, 0, 0, 1507339, 0, 0, 1507341, 0, 0, 1507343, 0, 0, 1507345, 0, 0 )
+
+[node name="Wall" parent="Walls" index="1" instance=ExtResource( 3 )]
+
+position = Vector2( 1600, 1536 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Wall2" parent="Walls" index="2" instance=ExtResource( 3 )]
+
+position = Vector2( 1728, 1536 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Wall3" parent="Walls" index="3" instance=ExtResource( 3 )]
+
+position = Vector2( 1856, 1536 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Wall4" parent="Walls" index="4" instance=ExtResource( 3 )]
+
+position = Vector2( 1984, 1536 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Wall5" parent="Walls" index="5" instance=ExtResource( 3 )]
+
+position = Vector2( 2112, 1536 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Wall6" parent="Walls" index="6" instance=ExtResource( 3 )]
+
+position = Vector2( 2240, 1536 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Finish" parent="Walls" index="7" instance=ExtResource( 4 )]
+
+position = Vector2( 2240, 1408 )
+
+[node name="Player" parent="." index="2"]
+
+position = Vector2( 384, 672 )
+
+[node name="Precipicio" parent="." index="4"]
+
+scale = Vector2( 11.4219, 1 )
+
+
