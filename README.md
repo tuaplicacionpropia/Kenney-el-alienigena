@@ -14,3 +14,5 @@ Se han empleado los siguientes recursos:
   - Onscreen Controls (https://kenney.nl/assets/onscreen-controls)
   - OpenGameArt (https://opengameart.org/)
   - Font 'Ragg Mopp NF' (https://www.1001fonts.com/)
+
+Código fuente publicado en Github.com (https://github.com/tuaplicacionpropia/Kenney-el-alienigena). También está disponible en itch.io (https://rrexky.itch.io/kenney-el-aliengena)
