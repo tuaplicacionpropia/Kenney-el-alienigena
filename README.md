@@ -15,4 +15,5 @@ Se han empleado los siguientes recursos:
   - OpenGameArt (https://opengameart.org/)
   - Font 'Ragg Mopp NF' (https://www.1001fonts.com/)
 
-Código fuente publicado en Github.com (https://github.com/tuaplicacionpropia/Kenney-el-alienigena). También está disponible en itch.io (https://rrexky.itch.io/kenney-el-aliengena)
+Código fuente publicado en Github.com (https://github.com/tuaplicacionpropia/Kenney-el-alienigena).
+También está disponible en Google Play (https://play.google.com/store/apps/details?id=org.rrexky.kenney) y en itch.io (https://rrexky.itch.io/kenney-el-aliengena)
